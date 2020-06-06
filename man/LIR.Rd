@@ -7,17 +7,17 @@
 LIR(M0, M1, endogenous, exogenous, moderator, interaction)
 }
 \arguments{
-\item{M0}{the path where mplus output of model 0 was saved; model 0 is the model without interaction}
+\item{M0}{the path where mplus output of the model without interaction was saved;}
 
-\item{M1}{the path where mplus output of model 1 was saved; model 1 is the model with interaction}
+\item{M1}{the path where mplus output of the model with interaction was saved;}
 
-\item{endogenous}{the endogenous (DV) variable}
+\item{endogenous}{the endogenous latent variable}
 
-\item{exogenous}{the exogenous (IV) variable}
+\item{exogenous}{the exogenous latent variable}
 
 \item{moderator}{the latent moderator variable}
 
-\item{interaction}{the interaction variable created by XWITH in mplus}
+\item{interaction}{the interaction variable created between exogenous and moderator by XWITH in mplus}
 }
 \description{
 R square of interaction between latent variables in 2-way interaction

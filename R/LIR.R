@@ -4,10 +4,10 @@
 #' R square of interaction between latent variables in 2-way interaction
 #' @param M0 the path where mplus output of the model without interaction was saved;
 #' @param M1 the path where mplus output of the model with interaction was saved;
-#' @param endogenous the endogenous (DV) variable
-#' @param exogenous the exogenous (IV) variable
+#' @param endogenous the endogenous latent variable
+#' @param exogenous the exogenous latent variable
 #' @param moderator the latent moderator variable
-#' @param interaction the interaction variable created by XWITH in mplus
+#' @param interaction the interaction variable created between exogenous and moderator by XWITH in mplus
 #'
 #' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}
 #' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@uiowa.edu}

@@ -11,13 +11,13 @@ LOIR(M0, M1, endogenous, exogenous, moderator, interaction)
 
 \item{M1}{the path where mplus output of the model with interaction was saved;}
 
-\item{endogenous}{the endogenous (DV) variable}
+\item{endogenous}{the endogenous latent variable}
 
-\item{exogenous}{the exogenous (IV) variable}
+\item{exogenous}{the exogenous latent variable}
 
-\item{moderator}{the latent moderator variable}
+\item{moderator}{the observed moderator variable}
 
-\item{interaction}{the interaction variable created by XWITH in mplus}
+\item{interaction}{the interaction variable created between exogenous and moderator by XWITH in mplus}
 }
 \description{
 R square of interaction between latent and observed variables in 2-way interaction
