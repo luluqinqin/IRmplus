@@ -2,12 +2,12 @@
 % Please edit documentation in R/LIR.R
 \name{LIR}
 \alias{LIR}
-\title{A function to generate leave-one-out cross-validation for Stan Model}
+\title{LIR}
 \usage{
 LIR(M0, M1, endogenous, exogenous, moderator, interaction)
 }
 \arguments{
-\item{Qmatrix}{the Q-matrix specified for the LCDM}
+\item{M0}{the Q-matrix specified for the LCDM}
 
 \item{save.path}{save the .stan file to somewhere; the default path is getwd()}
 
@@ -20,5 +20,5 @@ a. stan file saved at the specified path
 Latent Variable Interaction
 }
 \author{
-{Zhehan Jiang, University of Alabama, \email{zjiang17@ua.edu}}
+
 }

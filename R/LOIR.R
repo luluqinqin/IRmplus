@@ -12,7 +12,6 @@
 #' @return a. stan file saved at the specified path
 #'
 #' @author {Zhehan Jiang, University of Alabama, \email{zjiang17@@ua.edu}}
-#' @example
 #' @export
 
 

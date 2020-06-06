@@ -16,17 +16,7 @@ BugReports: https://github.com/JihongZ/StanDCM/issues
 Depends: 
     R (>= 3.5.0)
 Imports:
-    CDM,
-    dplyr,
-    ggplot2,
-    GDINA,
-    MCMCpack,
-    plyr,
-    Rlab,
-    stringr,
-    tidyr,
-    rstan,
-    pbapply
+    stringr
 Suggests: 
     testthat(>= 2.0.0)
 SystemRequirements: GNU make

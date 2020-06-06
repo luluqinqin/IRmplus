@@ -1,15 +1,14 @@
-#' @title A function to generate leave-one-out cross-validation for Stan Model
+#' @title LIR
 #'
 #' @description
 #' Latent Variable Interaction
 #'
-#' @param Qmatrix the Q-matrix specified for the LCDM
+#' @param M0 the Q-matrix specified for the LCDM
 #' @param save.path save the .stan file to somewhere; the default path is getwd()
 #' @param save.name name the .stan
 #' @return a. stan file saved at the specified path
 #'
-#' @author {Zhehan Jiang, University of Alabama, \email{zjiang17@@ua.edu}}
-#' @example
+#' @author {Zhehan Jiang, University of Alabama, \email{zjiang17@@ua.edu}
 #' @export
 
 
