@@ -7,24 +7,23 @@
 LOIR(M0, M1, endogenous, exogenous, moderator, interaction)
 }
 \arguments{
-\item{M0}{the Q-matrix specified for the LCDM}
+\item{M0}{the path where mplus output of the model without interaction was saved;}
 
-\item{M1}{save the .stan file to somewhere; the default path is getwd()}
+\item{M1}{the path where mplus output of the model with interaction was saved;}
 
-\item{endogenous}{name the .stan}
+\item{endogenous}{the endogenous (DV) variable}
 
-\item{exogenous}{name the .stan}
+\item{exogenous}{the exogenous (IV) variable}
 
-\item{moderator}{name the .stan}
+\item{moderator}{the latent moderator variable}
 
-\item{interaction}{name the .stan}
-}
-\value{
-a. stan file saved at the specified path
+\item{interaction}{the interaction variable created by XWITH in mplus}
 }
 \description{
-Latent & Observed Interaction
+R square of interaction between latent and observed variables in 2-way interaction
 }
 \author{
-{Zhehan Jiang, University of Alabama, \email{zjiang17@ua.edu}}
+
+
+
 }

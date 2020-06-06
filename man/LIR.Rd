@@ -7,18 +7,23 @@
 LIR(M0, M1, endogenous, exogenous, moderator, interaction)
 }
 \arguments{
-\item{M0}{the Q-matrix specified for the LCDM}
+\item{M0}{the path where mplus output of model 0 was saved; model 0 is the model without interaction}
 
-\item{save.path}{save the .stan file to somewhere; the default path is getwd()}
+\item{M1}{the path where mplus output of model 1 was saved; model 1 is the model with interaction}
 
-\item{save.name}{name the .stan}
-}
-\value{
-a. stan file saved at the specified path
+\item{endogenous}{the endogenous (DV) variable}
+
+\item{exogenous}{the exogenous (IV) variable}
+
+\item{moderator}{the latent moderator variable}
+
+\item{interaction}{the interaction variable created by XWITH in mplus}
 }
 \description{
-Latent Variable Interaction
+R square of interaction between latent variables in 2-way interaction
 }
 \author{
+
+
 
 }

@@ -1,18 +1,19 @@
 #' @title LOIR
 #'
 #' @description
-#' Latent & Observed Interaction
+#' R square of interaction between latent and observed variables in 2-way interaction
 #'
-#' @param M0 the Q-matrix specified for the LCDM
-#' @param M1 save the .stan file to somewhere; the default path is getwd()
-#' @param endogenous name the .stan
-#' @param exogenous name the .stan
-#' @param moderator name the .stan
-#' @param interaction name the .stan
-#' @return a. stan file saved at the specified path
+#' @param M0 the path where mplus output of the model without interaction was saved;
+#' @param M1 the path where mplus output of the model with interaction was saved;
+#' @param endogenous the endogenous (DV) variable
+#' @param exogenous the exogenous (IV) variable
+#' @param moderator the latent moderator variable
+#' @param interaction the interaction variable created by XWITH in mplus
 #'
-#' @author {Zhehan Jiang, University of Alabama, \email{zjiang17@@ua.edu}}
-#' @export
+#' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}
+#' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@@uiowa.edu}
+
+
 
 
 LOIR = function(M0, M1, endogenous, exogenous, moderator, interaction){
