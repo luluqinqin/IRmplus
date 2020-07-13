@@ -14,11 +14,10 @@ LazyData: TRUE
 RoxygenNote: 7.1.0
 BugReports: https://github.com/luluqinqin/IRmplus/issues
 Depends: 
-    R (>= 3.5.0)
-Imports:
     MplusAutomation,
     tidyverse,
-    stringi
+    stringi,
+    R (>= 3.5.0)
 Suggests: 
     testthat(>= 2.0.0)
 SystemRequirements: GNU make
