@@ -2,8 +2,8 @@
 #'
 #' @description
 #' R square of interaction between latent variables in 2-way interaction
-#' @param M0 the path where mplus output of the model without interaction was saved;
-#' @param M1 the path where mplus output of the model with interaction was saved;
+#' @param M0 the mplus output of the model without interaction;
+#' @param M1 the mplus output of the model with interaction;
 #' @param endogenous the endogenous latent variable
 #' @param exogenous the exogenous latent variable
 #' @param moderator the latent moderator variable

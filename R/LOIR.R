@@ -3,8 +3,8 @@
 #' @description
 #' R square of interaction between latent and observed variables in 2-way interaction
 #'
-#' @param M0 the path where mplus output of the model without interaction was saved;
-#' @param M1 the path where mplus output of the model with interaction was saved;
+#' @param M0 the mplus output of the model without interaction;
+#' @param M1 the mplus output of the model with interaction;
 #' @param endogenous the endogenous latent variable
 #' @param exogenous the exogenous latent variable
 #' @param moderator the observed moderator variable
@@ -42,8 +42,8 @@ LOIR = function(M0, M1, endogenous, exogenous, moderator, interaction){
   m1_var = m1_param[grepl(paste0("Variances"), m1_param[, grepl("paramHeader", names(m1_param))]),]
   m1_var1 = m1_var[grepl(paste0(c("^"),exogenous,c("$")), m1_var$param),]$est
   m1_res = m1_var[grepl(paste0(c("^"),endogenous,c("$")), m1_var$param),]$est
-  m1_cov = m1_param[grepl(paste0(c("WITH")), m1_param[, grepl("paramHeader", names(m1_param))]),]$est
-
+  m1_cov = m1_param[grepl(paste0(exogenous,c("."), c("WITH")), m1_param[, grepl("paramHeader", names(m1_param))]),]$est
+  
   #Get Observed Variable Variances
   txt2 = readLines(M1)
   df2 <- data.frame(txt2, paragraph = cumsum(txt2 == ""))
