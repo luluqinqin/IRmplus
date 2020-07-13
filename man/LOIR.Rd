@@ -7,9 +7,9 @@
 LOIR(M0, M1, endogenous, exogenous, moderator, interaction)
 }
 \arguments{
-\item{M0}{the path where mplus output of the model without interaction was saved;}
+\item{M0}{the mplus output of the model without interaction;}
 
-\item{M1}{the path where mplus output of the model with interaction was saved;}
+\item{M1}{the mplus output of the model with interaction;}
 
 \item{endogenous}{the endogenous latent variable}
 
