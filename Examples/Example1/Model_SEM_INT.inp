@@ -1,0 +1,24 @@
+TITLE: SEM With Two-Way Latent Interaction
+
+DATA: FILE = "J:\Example.dat";
+
+VARIABLE: 
+NAMES ARE 
+ID  y1 - y15
+gender;
+
+USEVARIABLES ARE 
+y1 - y15;
+
+ANALYSIS: TYPE = RANDOM;
+          ALGORITHM = INTEGRATION;
+
+
+MODEL: F1 BY y1 y2 y3 y4 y5;
+       F2 BY y6 y7 y8 y9 y10;
+       F3 BY y11 y12 y13 y14 y15;
+       Inter | F1 XWITH F2;
+       F3 ON F1 F2 Inter;
+       
+OUTPUT: SAMPSTAT;
+
