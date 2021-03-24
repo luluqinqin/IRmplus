@@ -11,16 +11,16 @@ LOIR(M0, M1, endogenous, exogenous, moderator, interaction)
 
 \item{M1}{the mplus output of the model with interaction;}
 
-\item{endogenous}{the endogenous latent variable}
+\item{endogenous}{one endogenous latent factor}
 
-\item{exogenous}{the exogenous latent variable}
+\item{exogenous}{one exogenous latent factor}
 
-\item{moderator}{the observed moderator variable}
+\item{moderator}{one observed covariate}
 
-\item{interaction}{the interaction variable created between exogenous and moderator by XWITH in mplus}
+\item{interaction}{one two-way interaction that are defined by the XWITH function in the mplus}
 }
 \description{
-R square of interaction between latent and observed variables in 2-way interaction
+R square of one two-way interactions between one latent factor and one observed covariate in structural equation model
 }
 \author{
 

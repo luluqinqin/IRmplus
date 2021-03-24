@@ -1,14 +1,14 @@
 #' @title LOIR
 #'
 #' @description
-#' R square of interaction between latent and observed variables in 2-way interaction
+#' R square of one two-way interactions between one latent factor and one observed covariate in structural equation model
 #'
 #' @param M0 the mplus output of the model without interaction;
 #' @param M1 the mplus output of the model with interaction;
-#' @param endogenous the endogenous latent variable
-#' @param exogenous the exogenous latent variable
-#' @param moderator the observed moderator variable
-#' @param interaction the interaction variable created between exogenous and moderator by XWITH in mplus
+#' @param endogenous one endogenous latent factor
+#' @param exogenous one exogenous latent factor
+#' @param moderator one observed covariate
+#' @param interaction one two-way interaction that are defined by the XWITH function in the mplus
 #'
 #' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}
 #' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@@uiowa.edu}
@@ -43,7 +43,7 @@ LOIR = function(M0, M1, endogenous, exogenous, moderator, interaction){
   m1_var1 = m1_var[grepl(paste0(c("^"),exogenous,c("$")), m1_var$param),]$est
   m1_res = m1_var[grepl(paste0(c("^"),endogenous,c("$")), m1_var$param),]$est
   m1_cov = m1_param[grepl(paste0(exogenous,c("."), c("WITH")), m1_param[, grepl("paramHeader", names(m1_param))]),]$est
-  
+
   #Get Observed Variable Variances
   txt2 = readLines(M1)
   df2 <- data.frame(txt2, paragraph = cumsum(txt2 == ""))

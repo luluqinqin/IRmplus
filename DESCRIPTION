@@ -1,25 +1,25 @@
 Package: IRmplus
 Type: Package
 Title: R square of interaction
-Version: 0.0.1
+Version: 0.2.0
 Author: Lu, Qin [aut, cre, cph], Jihong, Zhang [aut, ctb]
 Author@R: c(
     person("Lu", "Qin", email = "lu.qin@howard.edu", role = c("aut", "cre")),
     person("Jihong", "Zhang", email = "jihong-zhang@@uiowa.edu", role = c("ctb"), comment = "My website, <http://www.jihongzhang.org>"))
-Maintainer: Jihong Zhang <jihong-zhang@uiowa.edu>
-Description: A package calculating R square of the interaction in latent variable modeling
+Maintainer: Lu Qin <lu.qin@howard.edu>
+Description: A package calculating R square of one or more two-way interactions between latent factors in Structural Equation Model
 License: GPL-3
 Encoding: UTF-8
 LazyData: TRUE
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 BugReports: https://github.com/luluqinqin/IRmplus/issues
 Depends: 
     MplusAutomation,
     tidyverse,
     stringi,
+    stringr,
     R (>= 3.5.0)
 Suggests: 
     testthat(>= 2.0.0)
 SystemRequirements: GNU make
 NeedsCompilation: yes
-

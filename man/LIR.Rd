@@ -11,16 +11,16 @@ LIR(M0, M1, endogenous, exogenous, moderator, interaction)
 
 \item{M1}{the mplus output of the model with interaction;}
 
-\item{endogenous}{the endogenous latent variable}
+\item{endogenous}{one endogenous latent factor}
 
-\item{exogenous}{the exogenous latent variable}
+\item{exogenous}{one exogenous latent factor}
 
-\item{moderator}{the latent moderator variable}
+\item{moderator}{one latent moderator factor}
 
-\item{interaction}{the interaction variable created between exogenous and moderator by XWITH in mplus}
+\item{interaction}{one two-way interaction that are defined by the XWITH function in the mplus}
 }
 \description{
-R square of interaction between latent variables in 2-way interaction
+R square of one two-way interactions between latent factors in structural equation model
 }
 \author{
 

@@ -1,13 +1,14 @@
 #' @title LIR
 #'
 #' @description
-#' R square of interaction between latent variables in 2-way interaction
+#' R square of one two-way interactions between latent factors in structural equation model
+
 #' @param M0 the mplus output of the model without interaction;
 #' @param M1 the mplus output of the model with interaction;
-#' @param endogenous the endogenous latent variable
-#' @param exogenous the exogenous latent variable
-#' @param moderator the latent moderator variable
-#' @param interaction the interaction variable created between exogenous and moderator by XWITH in mplus
+#' @param endogenous one endogenous latent factor
+#' @param exogenous one exogenous latent factor
+#' @param moderator one latent moderator factor
+#' @param interaction one two-way interaction that are defined by the XWITH function in the mplus
 #'
 #' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}
 #' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@uiowa.edu}
