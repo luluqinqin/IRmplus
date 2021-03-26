@@ -18,6 +18,8 @@ Depends:
     tidyverse,
     stringi,
     stringr,
+    roxygen2,
+    devtools,
     R (>= 3.5.0)
 Suggests: 
     testthat(>= 2.0.0)
