@@ -1,0 +1,34 @@
+TITLE: SEM With Three Two-Way Interaction 
+
+DATA: 
+FILE = "K:\Research Studies\MultiTwo-WayInter\Data\data_INT3.dat";
+
+VARIABLE: 
+NAMES ARE 
+ID  y1 - y30;
+
+USEVARIABLES ARE 
+y1 - y30;
+
+ANALYSIS: TYPE = RANDOM;
+          ALGORITHM = INTEGRATION;
+
+
+  MODEL: F1 BY y1@0.91 y2@0.76 y3@0.72 y4@0.53 y5@0.48;
+         F2 BY y6@0.88 y7@0.88 y8@0.85 y9@0.65 y10@0.64;
+         F3 BY y11@0.79 y12@0.75 y13@0.58 y14@0.52 y15@0.57;
+         F4 BY y16@0.75 y17@0.64 y18@0.72 y19@0.47 y20@0.50;
+         F5 BY y21@0.70 y22@0.76 y23@0.68 y24@0.81 y25@0.83;
+         F6 BY y26@0.65 y27@0.70 y28@0.59 y29@0.55 y30@0.48;
+         [F1 - F6@0];
+         y1 - y30@0.2;
+       INT1 | F1 XWITH F2;
+       INT2 | F1 XWITH F3;
+       INT3 | F2 XWITH F3;
+
+       F6 ON F1 F2 F3 F4 F5 INT1 INT2 INT3;
+       
+
+OUTPUT: SAMPSTAT;
+
+

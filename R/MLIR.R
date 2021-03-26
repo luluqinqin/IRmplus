@@ -17,8 +17,6 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
   N = length(Interaction_factor)
   n = length(exogenous)
 
-
-  # NAME OF interaction generated in Mplus code based on the order of moderator
   int = matrix(0, (N-1),N)
   for (i in 1:(N-1)){
     for (j in (i+1):N){
@@ -31,12 +29,10 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
   }
   interaction = as.character(unlist(interaction))
 
-  #### Exogenous
   param = as.data.frame(readModels(Mplus_Output, what="parameters")$parameters$unstandardized)
   var = param[grepl(paste0("Variances"), param[, grepl("paramHeader", names(param))]),]
   var_end  = var[grepl(paste0(c("^"),endogenous,c("$")), var$param),]$est
 
-  ### Cofficient & Variance of Exogenous
   betas = param[grepl(paste0(endogenous,c("."), c("ON")), param[, grepl("paramHeader", names(param))]),]
   beta_exo = matrix(0,n,1)
   var_exo = matrix(0,n,1)
@@ -51,7 +47,6 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
   beta = rbind(beta_exo, beta_int)
   rownames(beta) = c(exogenous,interaction)
 
-  # Covariance of Exogenous Factors
   cov = param[grepl(paste0(c("WITH")), param[, grepl("paramHeader", names(param))]),]
   vcov_exo = matrix(0, n, n)
   for (p in 1:(n-2)){
@@ -68,8 +63,6 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
   rownames(vcov_exo) = exogenous
   colnames(vcov_exo) = exogenous
 
-  #### Interaction
-  ## Variance of Interaction
   var_int = matrix(0, N, N)
   for (p in 1:(N-2)){
     for (h in (1+p):N){
@@ -84,16 +77,12 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
   }
   var_int = as.numeric(unlist(D))
 
-
   if (N >2) {
-
-    ###### Covariance of Interaction (N needs to > 3)
-    # FIRST TWO-WAY INTERACTION
 
     A = matrix(0, length(rep(1:(N-1))), N)
     for (i in 1:(N-1)){
       for (j in (i+1):N) {
-        A[i,j] = c(paste0(i,j))     # all possible two-way interactions with N moderator.
+        A[i,j] = c(paste0(i,j))     
       }
     }
     C = list()
@@ -101,7 +90,7 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
       C[[i]] = subset(A[i,],A[i,] != 0)
     }
 
-    IJ = as.numeric(unlist(C))    # all possible two-way interactions with N moderator.
+    IJ = as.numeric(unlist(C))    
     I = as.numeric(substr(IJ,1,1))
     J = as.numeric(substr(IJ,2,2))
     H = as.numeric(substr(IJ,1,1))
@@ -121,16 +110,13 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
     rownames(vcov_int) = interaction
     colnames(vcov_int) = interaction
 
-    ##### R^2 of Multiple Interaction
-
-    # sum of exogeneous variance
     ve_1 = 0
     for (i in 1:n){
       temp = beta[exogenous[i],]^2 * vcov_exo[i,i]
       ve_1 = ve_1 + temp
     }
     ve_1
-    #sum of exogenous covariance
+
     ve_2 = 0
     for (i in 1: (n-1)){
       for (j in (i+1):n){
@@ -139,19 +125,14 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
       }
     }
     ve_2
-
-    #R0 = round((ve_1 + ve_2) / (ve_1 + ve_2 + var_end),2)   # Main Effect VCOV; No interaction in the model
-
-    # Full R2
-
-    # sum of interaction variance
+    
     ve_3 = 0
     for (i in 1:length(interaction)){
       temp = beta[interaction[i],]^2 * vcov_int[i,i]
       ve_3 = ve_3 + temp
     }
     ve_3
-    # sum of interaction covariance
+ 
     ve_4 = 0
     for (i in 1: (length(interaction)-1)){
       for (j in (i+1):(length(interaction))){
@@ -162,15 +143,15 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
     ve_4
 
     R1_raw = round((ve_1 + ve_2 + ve_3 + ve_4) /(ve_1 + ve_2 + ve_3 + ve_4 + var_end),4)
-    R1 = round(((ve_1 + ve_2 + ve_3 + ve_4) /(ve_1 + ve_2 + ve_3 + ve_4 + var_end))*100,2)     # Main Effect & Interaction VCOV
+    R1 = round(((ve_1 + ve_2 + ve_3 + ve_4) /(ve_1 + ve_2 + ve_3 + ve_4 + var_end))*100,2)    
 
     R_int_raw = round((ve_3 + ve_4) / (ve_1 + ve_2 + ve_3 + ve_4 + var_end),4)
-    R_int = round(((ve_3 + ve_4) / (ve_1 + ve_2 + ve_3 + ve_4 + var_end))*100,2)               # ONLY interaction VCOV
+    R_int = round(((ve_3 + ve_4) / (ve_1 + ve_2 + ve_3 + ve_4 + var_end))*100,2)              
 
   }
 
   else {
-    # sum of exogeneous variance
+
     ve_1 = 0
     for (i in 1:n){
       temp = beta[exogenous[i],]^2 * vcov_exo[i,i]
@@ -178,7 +159,6 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
     }
     ve_1
 
-    #sum of exogenous covariance
     ve_2 = 0
     for (i in 1: (n-1)){
       for (j in (i+1):n){
@@ -188,12 +168,6 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
     }
     ve_2
 
-
-    #R0 = round((ve_1 + ve_2) / (ve_1 + ve_2 + var_end),2)   # Main Effect VCOV; No interaction in the model
-
-    # Full R2
-
-    # sum of interaction variance
     ve_3 = 0
     for (i in 1:length(interaction)){
       temp = beta[interaction[i],]^2 * var_int
@@ -202,7 +176,7 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
     ve_3
 
     R1_raw = round((ve_1 + ve_2 + ve_3) /(ve_1 + ve_2 + ve_3 + var_end),4)
-    R1 = round(((ve_1 + ve_2 + ve_3) /(ve_1 + ve_2 + ve_3 + var_end))*100,2)     # Main Effect & Interaction VCOV
+    R1 = round(((ve_1 + ve_2 + ve_3) /(ve_1 + ve_2 + ve_3 + var_end))*100,2)     
 
     R_int_raw = round((ve_3 ) / (ve_1 + ve_2 + ve_3 + var_end),4)
     R_int = round(((ve_3 ) / (ve_1 + ve_2 + ve_3 + var_end))*100,2)

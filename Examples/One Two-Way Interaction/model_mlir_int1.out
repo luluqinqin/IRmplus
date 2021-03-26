@@ -1,0 +1,350 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+03/24/2021   1:27 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: SEM With One Two-Way Interaction
+
+  DATA:
+  FILE = "K:\Research Studies\MultiTwo-WayInter\Data\data_INT1.dat";
+
+  VARIABLE:
+  NAMES ARE
+  ID  y1 - y15;
+
+  USEVARIABLES ARE
+  y1 - y15;
+
+  ANALYSIS: TYPE = RANDOM;
+            ALGORITHM = INTEGRATION;
+
+
+    MODEL: F1 BY y1@0.91 y2@0.76 y3@0.72 y4@0.53 y5@0.48;
+           F2 BY y6@0.88 y7@0.88 y8@0.85 y9@0.65 y10@0.64;
+           F3 BY y11@0.79 y12@0.75 y13@0.58 y14@0.52 y15@0.57;
+           [F1 - F3@0];
+           y1 - y15@0.2;
+
+         INT1 | F1 XWITH F2;
+
+         F3 ON F1 F2 INT1 ;
+
+
+  OUTPUT: SAMPSTAT;
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+SEM With One Two-Way Interaction
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         500
+
+Number of dependent variables                                   15
+Number of independent variables                                  0
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   Y1          Y2          Y3          Y4          Y5          Y6
+   Y7          Y8          Y9          Y10         Y11         Y12
+   Y13         Y14         Y15
+
+Continuous latent variables
+   F1          F2          F3          INT1
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                  15
+  Dimensions of numerical integration                            2
+  Adaptive quadrature                                           ON
+Cholesky                                                       OFF
+
+Input data file(s)
+  K:\Research Studies\MultiTwo-WayInter\Data\data_INT1.dat
+Input data format  FREE
+
+
+SAMPLE STATISTICS
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              Y1            Y2            Y3            Y4            Y5
+              ________      ________      ________      ________      ________
+ 1             -0.002        -0.015        -0.016        -0.001        -0.014
+
+
+           Means
+              Y6            Y7            Y8            Y9            Y10
+              ________      ________      ________      ________      ________
+ 1              0.013         0.082         0.040         0.045         0.043
+
+
+           Means
+              Y11           Y12           Y13           Y14           Y15
+              ________      ________      ________      ________      ________
+ 1              1.187         1.155         0.907         0.821         0.881
+
+
+           Covariances
+              Y1            Y2            Y3            Y4            Y5
+              ________      ________      ________      ________      ________
+ Y1             1.108
+ Y2             0.744         0.789
+ Y3             0.715         0.580         0.748
+ Y4             0.536         0.449         0.429         0.511
+ Y5             0.481         0.394         0.389         0.286         0.464
+ Y6             0.328         0.273         0.277         0.212         0.173
+ Y7             0.363         0.296         0.262         0.209         0.199
+ Y8             0.373         0.285         0.262         0.219         0.190
+ Y9             0.254         0.204         0.172         0.148         0.105
+ Y10            0.264         0.205         0.188         0.155         0.155
+ Y11            0.048        -0.014         0.064        -0.021        -0.013
+ Y12            0.044        -0.011         0.063        -0.013        -0.023
+ Y13            0.046        -0.025         0.042        -0.011         0.011
+ Y14            0.040         0.001         0.056        -0.018         0.010
+ Y15            0.004        -0.030         0.014        -0.041        -0.025
+
+
+           Covariances
+              Y6            Y7            Y8            Y9            Y10
+              ________      ________      ________      ________      ________
+ Y6             0.942
+ Y7             0.761         0.978
+ Y8             0.742         0.765         0.950
+ Y9             0.542         0.564         0.561         0.603
+ Y10            0.561         0.564         0.570         0.412         0.607
+ Y11            0.159         0.153         0.074         0.118         0.094
+ Y12            0.155         0.138         0.086         0.100         0.070
+ Y13            0.087         0.083         0.040         0.044         0.041
+ Y14            0.108         0.095         0.038         0.062         0.039
+ Y15            0.118         0.117         0.063         0.071         0.047
+
+
+           Covariances
+              Y11           Y12           Y13           Y14           Y15
+              ________      ________      ________      ________      ________
+ Y11            5.487
+ Y12            4.559         4.099
+ Y13            3.859         3.322         2.999
+ Y14            3.416         2.935         2.492         2.420
+ Y15            3.757         3.231         2.735         2.413         2.872
+
+
+           Correlations
+              Y1            Y2            Y3            Y4            Y5
+              ________      ________      ________      ________      ________
+ Y1             1.000
+ Y2             0.796         1.000
+ Y3             0.785         0.755         1.000
+ Y4             0.712         0.706         0.693         1.000
+ Y5             0.670         0.651         0.660         0.588         1.000
+ Y6             0.321         0.317         0.330         0.306         0.262
+ Y7             0.348         0.337         0.306         0.296         0.295
+ Y8             0.363         0.329         0.310         0.315         0.285
+ Y9             0.311         0.295         0.256         0.267         0.199
+ Y10            0.321         0.296         0.280         0.278         0.291
+ Y11            0.020        -0.007         0.032        -0.013        -0.008
+ Y12            0.021        -0.006         0.036        -0.009        -0.017
+ Y13            0.025        -0.016         0.028        -0.009         0.009
+ Y14            0.024         0.001         0.042        -0.016         0.010
+ Y15            0.002        -0.020         0.009        -0.034        -0.021
+
+
+           Correlations
+              Y6            Y7            Y8            Y9            Y10
+              ________      ________      ________      ________      ________
+ Y6             1.000
+ Y7             0.793         1.000
+ Y8             0.784         0.794         1.000
+ Y9             0.719         0.735         0.741         1.000
+ Y10            0.741         0.731         0.750         0.680         1.000
+ Y11            0.070         0.066         0.032         0.065         0.051
+ Y12            0.079         0.069         0.043         0.064         0.044
+ Y13            0.052         0.048         0.024         0.033         0.030
+ Y14            0.072         0.062         0.025         0.052         0.032
+ Y15            0.071         0.070         0.038         0.054         0.036
+
+
+           Correlations
+              Y11           Y12           Y13           Y14           Y15
+              ________      ________      ________      ________      ________
+ Y11            1.000
+ Y12            0.961         1.000
+ Y13            0.951         0.948         1.000
+ Y14            0.938         0.932         0.925         1.000
+ Y15            0.946         0.942         0.932         0.916         1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       22
+
+Loglikelihood
+
+          H0 Value                       -6999.892
+          H0 Scaling Correction Factor      1.2276
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   14043.783
+          Bayesian (BIC)                 14136.505
+          Sample-Size Adjusted BIC       14066.675
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    Y1                 0.910      0.000    999.000    999.000
+    Y2                 0.760      0.000    999.000    999.000
+    Y3                 0.720      0.000    999.000    999.000
+    Y4                 0.530      0.000    999.000    999.000
+    Y5                 0.480      0.000    999.000    999.000
+
+ F2       BY
+    Y6                 0.880      0.000    999.000    999.000
+    Y7                 0.880      0.000    999.000    999.000
+    Y8                 0.850      0.000    999.000    999.000
+    Y9                 0.650      0.000    999.000    999.000
+    Y10                0.640      0.000    999.000    999.000
+
+ F3       BY
+    Y11                0.790      0.000    999.000    999.000
+    Y12                0.750      0.000    999.000    999.000
+    Y13                0.580      0.000    999.000    999.000
+    Y14                0.520      0.000    999.000    999.000
+    Y15                0.570      0.000    999.000    999.000
+
+ F3         ON
+    F1                -0.058      0.146     -0.398      0.690
+    F2                 0.205      0.136      1.502      0.133
+    INT1              -0.007      0.152     -0.049      0.961
+
+ F2       WITH
+    F1                 0.435      0.051      8.485      0.000
+
+ Means
+    F1                 0.000      0.000    999.000    999.000
+    F2                 0.000      0.000    999.000    999.000
+
+ Intercepts
+    Y1                -0.001      0.047     -0.020      0.984
+    Y2                -0.014      0.040     -0.357      0.721
+    Y3                -0.015      0.039     -0.395      0.693
+    Y4                 0.000      0.032     -0.011      0.991
+    Y5                -0.014      0.030     -0.447      0.655
+    Y6                 0.013      0.043      0.301      0.763
+    Y7                 0.083      0.044      1.872      0.061
+    Y8                 0.040      0.044      0.920      0.357
+    Y9                 0.045      0.035      1.304      0.192
+    Y10                0.043      0.035      1.243      0.214
+    Y11                1.189      0.109     10.935      0.000
+    Y12                1.158      0.094     12.379      0.000
+    Y13                0.908      0.080     11.395      0.000
+    Y14                0.823      0.073     11.274      0.000
+    Y15                0.883      0.079     11.241      0.000
+    F3                 0.000      0.000    999.000    999.000
+
+ Variances
+    F1                 1.086      0.070     15.493      0.000
+    F2                 0.995      0.062     16.007      0.000
+
+ Residual Variances
+    Y1                 0.200      0.000    999.000    999.000
+    Y2                 0.200      0.000    999.000    999.000
+    Y3                 0.200      0.000    999.000    999.000
+    Y4                 0.200      0.000    999.000    999.000
+    Y5                 0.200      0.000    999.000    999.000
+    Y6                 0.200      0.000    999.000    999.000
+    Y7                 0.200      0.000    999.000    999.000
+    Y8                 0.200      0.000    999.000    999.000
+    Y9                 0.200      0.000    999.000    999.000
+    Y10                0.200      0.000    999.000    999.000
+    Y11                0.200      0.000    999.000    999.000
+    Y12                0.200      0.000    999.000    999.000
+    Y13                0.200      0.000    999.000    999.000
+    Y14                0.200      0.000    999.000    999.000
+    Y15                0.200      0.000    999.000    999.000
+    F3                 7.908      1.229      6.436      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.409E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    k:\research studies\multitwo-wayinter\mplus\example on github\one two-way interaction\model_mlir
+
+     Beginning Time:  13:27:20
+        Ending Time:  13:27:22
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
