@@ -12,6 +12,7 @@
 #'
 #' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}
 #' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@@uiowa.edu}
+#' @export
 
 
 LOIR = function(M0, M1, endogenous, exogenous, moderator, interaction){

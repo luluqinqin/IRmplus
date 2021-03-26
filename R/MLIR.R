@@ -11,6 +11,7 @@
 #'
 #' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}
 #' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@@uiowa.edu}
+#' @export
 
 
 MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interaction_code) {
