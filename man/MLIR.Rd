@@ -22,4 +22,6 @@ R square of one or multiple two-way interactions between latent factors in struc
 }
 \author{
 
+
+
 }

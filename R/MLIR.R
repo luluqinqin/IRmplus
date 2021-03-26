@@ -10,6 +10,7 @@
 #' @param interaction_code interactions that are defined by the XWITH function in the mplus
 #'
 #' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}
+#' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@@uiowa.edu}
 
 
 MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interaction_code) {
@@ -82,7 +83,7 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
     A = matrix(0, length(rep(1:(N-1))), N)
     for (i in 1:(N-1)){
       for (j in (i+1):N) {
-        A[i,j] = c(paste0(i,j))     
+        A[i,j] = c(paste0(i,j))
       }
     }
     C = list()
@@ -90,7 +91,7 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
       C[[i]] = subset(A[i,],A[i,] != 0)
     }
 
-    IJ = as.numeric(unlist(C))    
+    IJ = as.numeric(unlist(C))
     I = as.numeric(substr(IJ,1,1))
     J = as.numeric(substr(IJ,2,2))
     H = as.numeric(substr(IJ,1,1))
@@ -125,14 +126,14 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
       }
     }
     ve_2
-    
+
     ve_3 = 0
     for (i in 1:length(interaction)){
       temp = beta[interaction[i],]^2 * vcov_int[i,i]
       ve_3 = ve_3 + temp
     }
     ve_3
- 
+
     ve_4 = 0
     for (i in 1: (length(interaction)-1)){
       for (j in (i+1):(length(interaction))){
@@ -143,10 +144,10 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
     ve_4
 
     R1_raw = round((ve_1 + ve_2 + ve_3 + ve_4) /(ve_1 + ve_2 + ve_3 + ve_4 + var_end),4)
-    R1 = round(((ve_1 + ve_2 + ve_3 + ve_4) /(ve_1 + ve_2 + ve_3 + ve_4 + var_end))*100,2)    
+    R1 = round(((ve_1 + ve_2 + ve_3 + ve_4) /(ve_1 + ve_2 + ve_3 + ve_4 + var_end))*100,2)
 
     R_int_raw = round((ve_3 + ve_4) / (ve_1 + ve_2 + ve_3 + ve_4 + var_end),4)
-    R_int = round(((ve_3 + ve_4) / (ve_1 + ve_2 + ve_3 + ve_4 + var_end))*100,2)              
+    R_int = round(((ve_3 + ve_4) / (ve_1 + ve_2 + ve_3 + ve_4 + var_end))*100,2)
 
   }
 
@@ -176,7 +177,7 @@ MLIR = function(Mplus_Output, endogenous, exogenous, Interaction_factor, interac
     ve_3
 
     R1_raw = round((ve_1 + ve_2 + ve_3) /(ve_1 + ve_2 + ve_3 + var_end),4)
-    R1 = round(((ve_1 + ve_2 + ve_3) /(ve_1 + ve_2 + ve_3 + var_end))*100,2)     
+    R1 = round(((ve_1 + ve_2 + ve_3) /(ve_1 + ve_2 + ve_3 + var_end))*100,2)
 
     R_int_raw = round((ve_3 ) / (ve_1 + ve_2 + ve_3 + var_end),4)
     R_int = round(((ve_3 ) / (ve_1 + ve_2 + ve_3 + var_end))*100,2)
