@@ -10,8 +10,8 @@
 #' @param moderator one latent moderator factor
 #' @param interaction one two-way interaction that are defined by the XWITH function in the mplus
 #'
-#' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}
-#' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@uiowa.edu}
+#' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}}
+#' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@uiowa.edu}}
 #' @export
 
 

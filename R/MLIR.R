@@ -9,8 +9,8 @@
 #' @param Interaction_factor the latent factors that are used to define the two-way interactions
 #' @param interaction_code interactions that are defined by the XWITH function in the mplus
 #'
-#' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}
-#' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@@uiowa.edu}
+#' @author {Lu Qin, Howard University, \email{lu.qin@howard.edu}}
+#' @author {Jihong Zhang, University of Iowa, \email{jihong-zhang@@uiowa.edu}}
 #' @export
 
 

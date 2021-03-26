@@ -21,7 +21,7 @@ MLIR(Mplus_Output, endogenous, exogenous, Interaction_factor, interaction_code)
 R square of one or multiple two-way interactions between latent factors in structural equation model
 }
 \author{
+{Lu Qin, Howard University, \email{lu.qin@howard.edu}}
 
-
-
+{Jihong Zhang, University of Iowa, \email{jihong-zhang@uiowa.edu}}
 }

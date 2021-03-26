@@ -23,7 +23,7 @@ LIR(M0, M1, endogenous, exogenous, moderator, interaction)
 R square of one two-way interactions between latent factors in structural equation model
 }
 \author{
+{Lu Qin, Howard University, \email{lu.qin@howard.edu}}
 
-
-
+{Jihong Zhang, University of Iowa, \email{jihong-zhang@uiowa.edu}}
 }
