@@ -1,0 +1,16 @@
+citHeader("To cite IRmplus in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = ,
+  author   = c("Qin Lu","Jihong Zhang"),
+  journal  = ,
+  year     = ,
+  volume   = ,
+  number   = ,
+  pages    = ,
+  url      = ,
+  textVersion = paste(
+
+  )
+)
